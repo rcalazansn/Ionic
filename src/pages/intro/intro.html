@@ -1,0 +1,32 @@
+<ion-slides pager>
+
+  <ion-slide class="slide-images">
+    <img src="assets/imgs/slide1.png">
+    <h2>Listage de Filmes</h2>
+    <br/>
+    <div>
+        <p>
+          Aplicativo de listagem de filmes
+        </p>
+        <p>
+          saiba como <strong><a (click)="goToHome()">Entrar</a></strong>
+        </p>
+      </div>
+  </ion-slide>
+
+  <ion-slide class="slide-images">
+      <img src="assets/imgs/slide2.png">
+    <h2>Slide 2</h2>
+  </ion-slide>
+
+  <ion-slide class="slide-images">
+      <img src="assets/imgs/slide3.png">
+    <h2>Slide 3</h2>
+
+    <button ion-button large clear icon-end color="primary" (click)="goToHome()">
+        Continue
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+  </ion-slide>
+
+</ion-slides>
