@@ -6,21 +6,25 @@
 
 
 <ion-content>
-  <ion-card>
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+
+  <ion-card *ngFor="let filme of ListaFilmes">
 
     <ion-item>
       <ion-avatar item-start>
         <img src="assets/imgs/marty-avatar.png">
       </ion-avatar>
-      <h2>Marty McFly</h2>
-      <p>November 5, 1955</p>
+      <h2>{{filme.original_title}}</h2>
+      <p>{{filme.release_date}}</p>
     </ion-item>
 
-    <img src="assets/imgs/advance-card-bttf.png">
+    <img [src]="'https://image.tmdb.org/t/p/w500/'+filme.backdrop_path">
 
     <ion-card-content>
-      <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?!
-        Whoa. This is heavy.</p>
+      <p>{{filme.overview}}</p>
     </ion-card-content>
 
     <ion-row>
@@ -42,7 +46,11 @@
         </ion-note>
       </ion-col>
     </ion-row>
-
+    <button ion-button block (click)="detalhesFilme(filme)">Detalhes</button>
   </ion-card>
 
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+    
 </ion-content>
