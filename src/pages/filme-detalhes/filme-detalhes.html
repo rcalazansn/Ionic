@@ -7,8 +7,8 @@
 
 <ion-content padding>
 
- 
-<ion-card *ngIf="filme">
+
+  <ion-card *ngIf="filme">
 
     <ion-item>
       <ion-avatar item-start>
@@ -23,8 +23,16 @@
     <ion-card-content>
       <p>{{filme.overview}}</p>
     </ion-card-content>
+    
+    <ion-slides pager *ngIf="lista_imagens">
+
+      <ion-slide class="slide-images" *ngFor="let img of lista_imagens">
+        <img [src]="'https://image.tmdb.org/t/p/w500/'+img.file_path">
+      </ion-slide>
+
+    </ion-slides>
 
 
-  </ion-card>  
+  </ion-card>
 
 </ion-content>

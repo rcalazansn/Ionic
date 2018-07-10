@@ -22,6 +22,10 @@ export class MovieProvider {
   }
 
   getMovie(id) {
-    return this.http.get(this.baseAPI + `movie/${id}?`+ this.getApiKey());
+    return this.http.get(this.baseAPI + `movie/${id}?` + this.getApiKey());
+  }
+
+  getImages(id) {
+    return this.http.get(this.baseAPI + `movie/${id}/images?` + this.getApiKey());
   }
 }

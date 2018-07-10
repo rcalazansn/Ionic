@@ -14,6 +14,8 @@ export class FilmeDetalhesPage {
   public filme;
   public filmeId;
 
+  public lista_imagens = new Array<any>();
+
   constructor(
     private movieProvider: MovieProvider,
     public navCtrl: NavController,
@@ -33,11 +35,31 @@ export class FilmeDetalhesPage {
         const response = (data as any);
         this.filme = response;
         console.log(this.filme);
+
+        this.obterImagens();
+
+      }, error => {
+        console.log(error);
+        this.fecharCarregando();
+      });
+  }
+
+  obterImagens() {
+    this.movieProvider.getImages(this.filmeId)
+      .subscribe(data => {
+        console.log(data);
+
+        const response = (data as any);
+        const objeto_retorno = response.backdrops;
+        console.log('obj => ' + objeto_retorno);
+        this.lista_imagens = objeto_retorno;
+
         this.fecharCarregando();
       }, error => {
         console.log(error);
         this.fecharCarregando();
       });
+
   }
 
   abrirCarregando() {
