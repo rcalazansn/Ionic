@@ -13,7 +13,7 @@ export class MovieProvider {
 
 
   private getApiKey(): string {
-    let key = "API_KEY";
+    let key = "b248aa1d6a9e33c75bebde792b1bcdfb";
     return `api_key=${key}&language=pt-br`;
   }
 
